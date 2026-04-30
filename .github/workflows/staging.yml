@@ -21,13 +21,13 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME}}
           password: ${{ secrets.DOCKERHUB_PASSWORD}}
-      - 
-        name: Debug repo structure
+      # - 
+      #   name: Debug repo structure
 
-        run: |
-          pwd
-          ls -la Wanderlust
-          ls -la .Wanderlust/Wanderlust/backend || echo "backend folder missing"
+      #   run: |
+      #     pwd
+      #     ls -la Wanderlust
+      #     ls -la .Wanderlust/Wanderlust/backend || echo "backend folder missing"
       -
         name: Build and push backend image
         uses: docker/build-push-action@v7
