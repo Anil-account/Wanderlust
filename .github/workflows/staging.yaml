@@ -26,8 +26,8 @@ jobs:
 
         run: |
           pwd
-          ls -la ../../
-          ls -la ../../backend || echo "backend folder missing"
+          ls -la ../
+          ls -la ../backend || echo "backend folder missing"
       -
         name: Build and push backend image
         uses: docker/build-push-action@v7
