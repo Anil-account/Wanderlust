@@ -28,7 +28,7 @@ jobs:
           context: ./backend/
           file: ./backend/Dockerfile
           push: true
-          tags: $DOCKERHUB_USERNAME/wanderlust-backend-git:latest
+          tags: dockerslayer10/wanderlust-backend-git:latest
       -
         name: Build and push frontend image
         uses: docker/build-push-action@v7
@@ -36,4 +36,4 @@ jobs:
           context: ./frontend/
           file: ./frontend/Dockerfile
           push: true
-          tags: $DOCKERHUB_USERNAME/wanderlust-frontend-git:latest
+          tags: dockerslayer10/wanderlust-frontend-git:latest
