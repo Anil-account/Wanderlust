@@ -33,7 +33,6 @@ jobs:
         uses: docker/build-push-action@v7
         with:
           context: ./backend
-          file: ./backend/Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/wanderlust-backend-git:latest
       -
