@@ -76,7 +76,7 @@ jobs:
       - name: Copy docker-compose file to server
         uses: appleboy/scp-action@v1
         with:
-          host: 192.168.56.50
+          host: 192.168.56.60
           username: ${{ secrets.SERVER_NAME }}
           key: ${{ secrets.ID_RSA }}
           port: 22
