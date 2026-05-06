@@ -79,8 +79,8 @@ jobs:
           username: ${{ secrets.SERVER_NAME }}
           key: ${{ secrets.ID_RSA }}
           port: 22
-          source: "docker-compose-staging.yaml"
-          target: "/home/vagrant/docker-compose.yaml"
+          source: "./docker-compose-staging.yaml"
+          target: "/home/ubuntu/docker-compose.yaml"
 
       - name: Debug files
         run: |
