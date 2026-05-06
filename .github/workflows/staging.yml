@@ -73,7 +73,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Copy docker-compose file to server
-        uses: appleboy/scp-action@1
+        uses: appleboy/scp-action@v1
         with:
           host: 192.168.56.50
           username: ${{ secrets.SERVER_NAME }}
