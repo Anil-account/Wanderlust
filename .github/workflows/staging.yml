@@ -73,15 +73,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       
-
-      - name: Debug file structure
-        run: |
-          echo "Current directory:"
-          pwd
-          echo "All files:"
-          ls -R
-          echo "Searching compose files:"
-          find . -type f -name "*compose*"
       - name: Copy docker-compose file to server
         uses: appleboy/scp-action@v1
         with:
@@ -89,7 +80,7 @@ jobs:
           username: ${{ secrets.SERVER_NAME }}
           key: ${{ secrets.ID_RSA }}
           port: 22
-          source: "./docker-compose-staging.yaml"
+          source: "./docker-compose.yaml"
           target: "/home/ubuntu/docker-compose.yaml"
 
       
