@@ -81,3 +81,8 @@ jobs:
           port: 22
           source: "docker-compose-staging.yaml"
           target: "/home/vagrant/docker-compose.yaml"
+
+      - name: Debug files
+        run: |
+          pwd
+          ls -la
