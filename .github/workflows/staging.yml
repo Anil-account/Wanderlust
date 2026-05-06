@@ -81,6 +81,6 @@ jobs:
           key: ${{ secrets.ID_RSA }}
           port: 22
           source: "./docker-compose.yaml"
-          target: "/home/ubuntu/docker-compose.yaml"
+          target: "/home/vagrant/docker-compose.yaml"
 
       
