@@ -76,11 +76,11 @@ jobs:
       - name: Copy docker-compose file to server
         uses: appleboy/scp-action@v1
         with:
-          host: 192.168.56.60
+          host: 35.171.141.218
           username: ${{ secrets.SERVER_NAME }}
           key: ${{ secrets.ID_RSA }}
           port: 22
           source: "./docker-compose.yaml"
-          target: "/home/vagrant/docker-compose.yaml"
+          target: "/home/ubuntu/"
 
       
