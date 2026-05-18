@@ -27,7 +27,6 @@ jobs:
       # - 
       #   name: Debug repo structure
       #   run: |
-      
       #     pwd
       #     ls -la Wanderlust
       #     ls -la .Wanderlust/Wanderlust/backend || echo "backend folder missing"
