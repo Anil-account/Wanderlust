@@ -75,11 +75,40 @@ jobs:
       - name: Copy docker-compose file to server
         uses: appleboy/scp-action@v1
         with:
-          host: 35.171.141.218
+          host: ${{ secrets.HOST }}
           username: ${{ secrets.SERVER_NAME }}
           key: ${{ secrets.ID_RSA }}
           port: 22
           source: "./docker-compose.yaml"
           target: "/home/ubuntu/"
-
+    
+  Copy_Bash_Script_To_Server:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
       
+      - name: Copy docker.sh script to server
+        uses: appleboy/scp-action@v1
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.SERVER_NAME }}
+          key: ${{ secrets.ID_RSA }}
+          port: ${{ secrets.PORT }}
+          source: "./docker.sh"
+          target: "/home/ubuntu/"
+          
+  Deploy_On_Server:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Execute remote SSH commands using SSH key
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.ID_RSA }}
+          port: ${{ secrets.PORT }}
+          script: 
+            bash /home/ubuntu/docker.sh
+            docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_PASSWORD }}
+            docker-compose up -d 
