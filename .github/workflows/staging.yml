@@ -108,7 +108,8 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.ID_RSA }}
           port: ${{ secrets.PORT }}
-          script: 
+          script: |
             bash /home/ubuntu/docker.sh
-            docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_PASSWORD }}
-            docker-compose up -d 
+            echo "${{secrets.DOCKERHUB_PASSWORD}}" | docker login --username "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+            docker-compose up -d
+            docker system prune -f
