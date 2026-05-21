@@ -105,7 +105,7 @@ jobs:
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
+          username: ${{ secrets.SERVER_NAME }}
           password: ${{ secrets.ID_RSA }}
           port: ${{ secrets.PORT }}
           script: |
