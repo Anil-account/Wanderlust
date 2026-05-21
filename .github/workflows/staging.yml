@@ -106,7 +106,7 @@ jobs:
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.ID_RSA }}
+          password: ${{ secrets.ID_RSA }}
           port: ${{ secrets.PORT }}
           script: |
             bash /home/ubuntu/docker.sh
