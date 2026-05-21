@@ -111,6 +111,6 @@ jobs:
           script: |
             bash /home/ubuntu/docker.sh
             echo "${{secrets.DOCKERHUB_PASSWORD}}" | docker login --username "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
-            docker-compose up -d
-            docker system prune -f
+            sudo docker compose up -d
+            sudo docker system prune -f
   
