@@ -20,7 +20,7 @@ services:
 
   backend:
     container_name: backend
-    image: backend
+    image: dockerslayer10/wanderlust-backend-git:latest
     depends_on:
       - db
     environment:
@@ -35,7 +35,7 @@ services:
 
   frontend:
     container_name: frontend
-    image: frontend
+    image: dockerslayer10/wanderlust-frontend-git:latest
     environment:
       - VITE_API_PATH=http://192.168.56.50:5000
     ports:
