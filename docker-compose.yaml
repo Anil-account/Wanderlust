@@ -3,7 +3,7 @@ version: '3.8'
 services:
   db:
     container_name: mongodb
-    image: dockerslayer10/mongodb:latest
+    image: dockerslayer10/wanderlust-database:latest  
     ports:
       - "27017:27017"
     volumes:
@@ -26,8 +26,8 @@ services:
     environment:
       - PORT=5000
       - MONGODB_URI=mongodb://mongodb:27017/wanderlust
-      - CORS_ORIGIN=http://192.168.56.50:5173
-      - FRONTEND_URL=http://192.168.56.50:5173
+      - CORS_ORIGIN=http://35.171.141.218:5173
+      - FRONTEND_URL=http://35.171.141.218:5173
     ports:
       - "5000:5000"
     networks:
@@ -37,7 +37,7 @@ services:
     container_name: frontend
     image: dockerslayer10/wanderlust-frontend-git:latest
     environment:
-      - VITE_API_PATH=http://192.168.56.50:5000
+      - VITE_API_PATH=http://35.171.141.218:5000
     ports:
       - "5173:5173"
     networks:
