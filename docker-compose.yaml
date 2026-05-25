@@ -47,3 +47,4 @@ networks:
   wanderlust:
     name: wanderlust
     driver: bridge
+    
