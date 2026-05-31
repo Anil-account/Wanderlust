@@ -48,3 +48,5 @@ networks:
     name: wanderlust
     driver: bridge
     
+volumes:
+  mongodb_data:
