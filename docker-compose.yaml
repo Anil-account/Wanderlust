@@ -7,11 +7,11 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - ./backend/data/sample_posts.json:/data/sample_posts.json
+      - mongodb_data:/data/db
     command: >
       bash -c "
       mongod --bind_ip_all &
-      sleep 5 &&
+      sleep 10 &&
       mongoimport --drop --db wanderlust --collection posts --file /data/sample_posts.json --jsonArray &&
       wait
       "
@@ -47,6 +47,54 @@ networks:
   wanderlust:
     name: wanderlust
     driver: bridge
-    
-volumes:
-  - ./backend/data:/data
+
+
+# version: '3.8'
+
+# services:
+#   db:
+#     container_name: mongodb
+#     image: dockerslayer10/mongodb:latest
+#     ports:
+#       - "27017:27017"
+#     volumes:
+#       - ./backend/data:/data
+#     command: >
+#       bash -c "
+#       mongod --bind_ip_all &
+#       sleep 10 &&
+#       mongoimport --drop --db wanderlust --collection posts --file /data/sample_posts.json --jsonArray &&
+#       wait
+#       "
+#     networks:
+#       - wanderlust
+
+#   backend:
+#     container_name: backend
+#     image: dockerslayer10/wanderlust-backend-git:latest
+#     depends_on:
+#       - db
+#     environment:
+#       - PORT=5000
+#       - MONGODB_URI=mongodb://mongodb:27017/wanderlust
+#       - CORS_ORIGIN=http://35.171.141.218:5173
+#       - FRONTEND_URL=http://35.171.141.218:5173
+#     ports:
+#       - "5000:5000"
+#     networks:
+#       - wanderlust
+
+#   frontend:
+#     container_name: frontend
+#     image: dockerslayer10/wanderlust-frontend-git:latest
+#     environment:
+#       - VITE_API_PATH=http://35.171.141.218:5000
+#     ports:
+#       - "5173:5173"
+#     networks:
+#       - wanderlust
+
+# networks:
+#   wanderlust:
+#     name: wanderlust
+#     driver: bridge
